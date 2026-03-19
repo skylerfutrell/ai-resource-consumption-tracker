@@ -1,15 +1,19 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environments
+# Python mess (Virtual Environments)
 venv/
+__pycache__/
+*.py[cod]
+
+# Secret files (Passwords/API keys)
 .env
 
-# OS files
-.DS_Store
+# Database files (Local storage)
+*.sqlite3
+*.db
 
-# Data files (optional later)
-*.csv
+# Frontend mess (Downloaded packages)
+node_modules/
+dist/
+
+# Mac/Windows system junk
+.DS_Store
+Thumbs.db
