@@ -1,0 +1,3 @@
+[2026-03-19 17:18] Model: large, Hours: 5.0, Water: 22.5L
+[2026-03-19 17:18] Model: large, Hours: 24.0, Water: 108.0L
+2026-03-19 17:47:30.154089: large model in california used 2000.0g CO2 and 15.0L water.
