@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resource Tracker</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; line-height: 1.6; color: #333; }
+        .card { border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #000; color: #fff; cursor: pointer; border: none; font-weight: bold; }
+        button:hover { background: #444; }
+        #results { background: #f9f9f9; display: none; }
+    </style>
+</head>
+<body>
+
+    <h2>AI Resource Tracker</h2>
+    
+    <div class="card">
+        <label>Model Size</label>
+        <select id="model">
+            <option value="small">Small (Efficient)</option>
+            <option value="medium">Medium (Standard)</option>
+            <option value="large">Large (High Power)</option>
+        </select>
+
+        <label>Usage Hours</label>
+        <input type="number" id="hours" value="1">
+
+        <label>Server Location</label>
+        <select id="location">
+            <option value="virginia">Virginia, USA (Mixed Energy)</option>
+            <option value="sweden">Sweden (Clean Energy)</option>
+            <option value="california">California, USA (Solar/Wind)</option>
+        </select>
+
+        <button onclick="calculateImpact()">Calculate & Save to SQL</button>
+    </div>
+
+    <div id="results" class="card">
+        <h3>Current Impact</h3>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        async function calculateImpact() {
+            const model = document.getElementById('model').value;
+            const hours = document.getElementById('hours').value;
+            const loc = document.getElementById('location').value;
+
+            // This is the "Bridge" connecting the Frontend to your Python Backend
+            const response = await fetch(`http://127.0.0.1:8000/log-usage?model=${model}&hours=${hours}&location=${loc}`);
+            const data = await response.json();
+
+            // Display the result dynamically
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('output').innerText = 
+                `Entry #${data.database_id}: Your AI session produced ${data.saved_data.carbon_g}g of CO2.`;
+        }
+    </script>
+</body>
+</html>

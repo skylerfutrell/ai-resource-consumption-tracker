@@ -17,3 +17,15 @@ dist/
 # Mac/Windows system junk
 .DS_Store
 Thumbs.db
+
+# --- DATABASE (CRITICAL) ---
+ai_usage.db
+sentiment_tracker.db
+*.db
+
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
