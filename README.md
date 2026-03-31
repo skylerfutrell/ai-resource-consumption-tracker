@@ -11,12 +11,16 @@ This project estimates and visualizes the energy and water consumption of artifi
 - Explore ethical implications of AI resource consumption
 
 ## Tech Stack
-- Python
-- SQL (PostgreSQL / SQLite)
-- FastAPI
-- Pandas
-- React
-- Chart.js / Plotly
+- Backend: Python, FastAPI, SQLAlchemy
+- Database: SQLite (SQLAlchemy ORM)
+- Frontend: React (Vite), Tailwind CSS
+- Data Science: Pandas (for future analysis)
 
-## Status
-🚧 In Progress – Initial simulation development
+## Project Structure
+- **/backend**: FastAPI server, SQLAlchemy database models, and AI consumption logic.
+- **/frontend**: React dashboard styled with Tailwind CSS, fetching live data via API.
+- **ai_usage.db**: Local SQLite database storing all resource calculation history.
+
+## Getting Started
+1. **Backend**: `cd backend` -> `pip install -r requirements.txt` -> `uvicorn main:app --reload`
+2. **Frontend**: `cd frontend` -> `npm install` -> `npm run dev`
